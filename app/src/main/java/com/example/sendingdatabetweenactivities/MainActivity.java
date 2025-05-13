@@ -1,5 +1,6 @@
 package com.example.sendingdatabetweenactivities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
          signUp.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
+                 String userName= editName.getText().toString();
+                 String userEmail= editEmail.getText().toString();
+                 String phoneNumber= String.valueOf(Integer.valueOf(editPhoneNumber.getText().toString()));
+                 Intent i = new Intent(MainActivity.this, SecondActivity.class);
+                 i.putExtra("name",userName);
+                 i.putExtra("email",userEmail);
+                 i.putExtra("phone",phoneNumber);
+                 startActivity(i);
                  
              }
          });
